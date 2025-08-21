@@ -167,3 +167,37 @@ build: 2025-08-20 01:45
   // boot
   ensureVers(); hydrateFooter(); updateBadge(); refreshVersions();
 })();
+/* ===== helpers footer + vue réglages (patch minimal) ===== */
+(function () {
+  const Coach = (window.Coach = window.Coach || {});
+
+  // Ouvrir la vue Réglages (utilisé par le bouton ⚙️)
+  Coach.showSettings = function () {
+    const s = document.getElementById('settingsView');
+    const v = document.getElementById('sessionView');
+    if (s) s.classList.remove('hidden');
+    if (v) v.classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Renseigner le panneau "Coach v4" en bas (versions visibles)
+  window.hydrateFooter = function () {
+    const set = (id, txt) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = txt;
+    };
+    set('vIndex', '5.2.1 (2025-08-20 01:45)');
+    set('vApp',   '— // JS split : utils v1.2 • skins v1.0 • timer v1.1 • session v1.3');
+    set('vThemes','2.03 (2025-08-20 01:45)');
+    set('vCatalog','— 1.10 (2025-08-19 01:05)');
+    set('vExplain','— 1.10 (2025-08-19 01:05)');
+    set('vProgression','— 1.10 (2025-08-19 01:05)');
+  };
+
+  // Appel auto au chargement + branchement du bouton ⚙️
+  document.addEventListener('DOMContentLoaded', () => {
+    try { window.hydrateFooter(); } catch (_) {}
+    document.getElementById('openSettings')
+      ?.addEventListener('click', Coach.showSettings);
+  });
+})();
