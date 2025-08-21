@@ -1,7 +1,7 @@
 /*
 app-profiles.js
-version: 1.1
-build: 2025-08-20 20:09
+version: 1.2
+build: 2025-08-21 13:35
 */
 (function(){
   "use strict";
@@ -21,7 +21,6 @@ build: 2025-08-20 20:09
   };
 
   function uid(){ return "u-" + Math.random().toString(36).slice(2,8); }
-
   function nowISO(){ return new Date().toISOString(); }
 
   function makeDefaultProfile(){
@@ -45,7 +44,7 @@ build: 2025-08-20 20:09
 
   function makeDefaultDoc(){
     const p = makeDefaultProfile();
-    return { version: 1.1, lastProfileId: p.id, profiles: [p] };
+    return { version: 1.2, lastProfileId: p.id, profiles: [p] };
   }
 
   function readLocalDoc(){
@@ -60,12 +59,12 @@ build: 2025-08-20 20:09
 
   async function fetchFileDoc(){
     try{
+      // NOTE: si ton site est sous /coach_app/, préfère 'user_data.json' (relatif) à '/user_data.json' (racine).
       const r = await fetch("/user_data.json", {cache:"no-store"});
       if(!r.ok) return null;
       return await r.json();
     }catch(_){ return null; }
-  }
-  }
+  } // <-- FIN correcte de fetchFileDoc (le '}' superflu a été retiré)
 
   function persistLocal(doc){
     try{ localStorage.setItem(LS_DOC, JSON.stringify(doc)); }catch(_){}
@@ -74,8 +73,8 @@ build: 2025-08-20 20:09
   async function saveDoc(){
     if(!state.doc) return;
     state.doc.lastProfileId = state.current?.id || state.doc.lastProfileId;
-    state.current.updated = nowISO();
-    // PURE CLIENT: save in browser only
+    if (state.current) state.current.updated = nowISO();
+    // PURE CLIENT: sauvegarde dans le navigateur
     persistLocal(state.doc);
   }
   const debouncedSave = debounce(saveDoc, 400);
@@ -126,7 +125,7 @@ build: 2025-08-20 20:09
   }
 
   function rebuildUserSelect(){
-    if(!userSel) return;
+    if(!userSel || !state.doc) return;
     userSel.innerHTML = "";
     for(const p of state.doc.profiles){
       const opt = document.createElement("option");
@@ -142,7 +141,7 @@ build: 2025-08-20 20:09
     if(trainerSel) trainerSel.value = s.trainer || "jerome";
     if(themeSel)   themeSel.value   = s.skin    || (localStorage.getItem("coach_skin")||"dark");
 
-    // invoke Skins to keep UI coherent
+    // invoque Skins pour garder l’UI cohérente
     if(window.Coach?.Skins){
       window.Coach.Skins.applyProfile(trainerSel.value);
       window.Coach.Skins.applySkin(themeSel.value);
@@ -271,11 +270,11 @@ build: 2025-08-20 20:09
 
   async function init(){
     bindUI();
-    // 1) localStorage first
+    // 1) localStorage d’abord
     let doc = readLocalDoc();
-    // 2) optional seed from embedded user_data.json (one-shot)
+    // 2) optionnel : seed depuis user_data.json intégré (one-shot)
     if(!doc) doc = await fetchFileDoc();
-    // 3) default if nothing found
+    // 3) défaut si rien trouvé
     ensureDocLoaded(doc || makeDefaultDoc());
 
     try{ localStorage.setItem('coach_user_data', JSON.stringify(state.doc)); }catch(_){}
