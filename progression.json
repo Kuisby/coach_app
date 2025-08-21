@@ -1,0 +1,36 @@
+{
+  "1": {
+    "start": 3,
+    "target": 25,
+    "tau": 12,
+    "quantum": 1,
+    "capPerSession": 2
+  },
+  "2": {
+    "start": 5,
+    "target": 30,
+    "tau": 10,
+    "quantum": 1,
+    "capPerSession": 3
+  },
+  "10": {
+    "start": 10,
+    "target": 90,
+    "tau": 10,
+    "quantum": 5,
+    "capPerSession": 15
+  },
+  "20": {
+    "start": 2,
+    "target": 20,
+    "tau": 12,
+    "quantum": 1,
+    "capPerSession": 2
+  },
+  "version": "1.10",
+  "_meta": {
+    "version": "1.10",
+    "build": "2025-08-19 01:05",
+    "file": "progression.json"
+  }
+}

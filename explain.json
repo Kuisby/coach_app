@@ -1,0 +1,28 @@
+{
+  "1": "Position de pompe classique, mains à plat au sol largeur d’épaules, descendre poitrine proche du sol puis remonter.",
+  "2": "Comme les pompes classiques mais genoux au sol pour réduire la charge.",
+  "3": "Mains rapprochées formant un losange sous la poitrine, cible les triceps.",
+  "4": "Mains plus écartées que les épaules, accent sur les pectoraux.",
+  "5": "Mains derrière soi sur une chaise, plier les coudes à 90° en descendant.",
+  "6": "Debout, bouteilles dans chaque main, lever les bras latéralement jusqu’à l’horizontale.",
+  "7": "Debout, bouteilles dans chaque main, plier les coudes en ramenant les mains vers les épaules.",
+  "8": "Allongé sur le dos, ramener le buste vers les genoux en contractant les abdominaux.",
+  "9": "Allongé sur le dos, lever les jambes tendues à 90° puis redescendre sans toucher le sol.",
+  "10": "Appui sur avant-bras et pointes de pieds, maintenir le corps aligné.",
+  "11": "Appui sur un avant-bras et le côté du pied, maintenir le corps droit.",
+  "12": "Position de pompe, alterner rapidement genoux ramenés vers la poitrine.",
+  "13": "Debout, pieds largeur d’épaules, plier les genoux comme pour s’asseoir, puis remonter.",
+  "14": "Un grand pas en avant, plier les deux genoux à 90°, revenir et alterner.",
+  "15": "Un grand pas sur le côté, plier le genou de la jambe avancée, garder l’autre tendue.",
+  "16": "Comme un squat classique mais ajouter un saut explosif à la remontée.",
+  "17": "Allongé sur le dos, pieds au sol, soulever le bassin en contractant les fessiers.",
+  "18": "Dos contre un mur, descendre en position assise, maintenir.",
+  "19": "Allongé sur le ventre, lever bras et jambes simultanément en gainage.",
+  "20": "Depuis debout, descendre en pompe puis saut explosif en extension.",
+  "version": "1.10",
+  "_meta": {
+    "version": "1.10",
+    "build": "2025-08-19 01:05",
+    "file": "explain.json"
+  }
+}

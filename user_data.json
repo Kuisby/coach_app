@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "lastProfileId": "u-default",
+  "profiles": [
+    {
+      "id": "u-default",
+      "name": "Par défaut",
+      "created": "2025-08-20T20:00:36Z",
+      "updated": "2025-08-20T20:00:36Z",
+      "settings": {
+        "trainer": "jerome",
+        "skin": "dark",
+        "age": null,
+        "height": null,
+        "weight": null,
+        "goal": null,
+        "flags": {}
+      },
+      "progress": {
+        "exercises": {},
+        "history": []
+      },
+      "overrides": {
+        "progression": {}
+      }
+    }
+  ]
+}

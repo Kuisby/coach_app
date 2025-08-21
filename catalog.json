@@ -1,0 +1,130 @@
+{
+  "version": "1.10",
+  "_meta": {
+    "version": "1.10",
+    "build": "2025-08-19 01:05",
+    "file": "catalog.json"
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Pompes classiques",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 2,
+      "name": "Pompes sur les genoux",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 3,
+      "name": "Pompes diamant",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 4,
+      "name": "Pompes écartées",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 5,
+      "name": "Dips sur chaise",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 6,
+      "name": "Élévations latérales (bouteilles)",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 7,
+      "name": "Curl biceps (bouteilles)",
+      "category": "haut du corps",
+      "type": "reps"
+    },
+    {
+      "id": 8,
+      "name": "Crunchs",
+      "category": "abdominaux",
+      "type": "reps"
+    },
+    {
+      "id": 9,
+      "name": "Relevés de jambes allongé",
+      "category": "abdominaux",
+      "type": "reps"
+    },
+    {
+      "id": 10,
+      "name": "Planche statique",
+      "category": "abdominaux",
+      "type": "time"
+    },
+    {
+      "id": 11,
+      "name": "Planche latérale",
+      "category": "abdominaux",
+      "type": "time"
+    },
+    {
+      "id": 12,
+      "name": "Mountain climbers",
+      "category": "cardio/abdominaux",
+      "type": "time"
+    },
+    {
+      "id": 13,
+      "name": "Squats poids du corps",
+      "category": "bas du corps",
+      "type": "reps"
+    },
+    {
+      "id": 14,
+      "name": "Fentes avant",
+      "category": "bas du corps",
+      "type": "reps"
+    },
+    {
+      "id": 15,
+      "name": "Fentes latérales",
+      "category": "bas du corps",
+      "type": "reps"
+    },
+    {
+      "id": 16,
+      "name": "Squat sauté",
+      "category": "bas du corps",
+      "type": "reps"
+    },
+    {
+      "id": 17,
+      "name": "Pont fessier",
+      "category": "bas du corps",
+      "type": "reps"
+    },
+    {
+      "id": 18,
+      "name": "Chaise (dos au mur)",
+      "category": "bas du corps",
+      "type": "time"
+    },
+    {
+      "id": 19,
+      "name": "Gainage superman",
+      "category": "abdominaux/dos",
+      "type": "time"
+    },
+    {
+      "id": 20,
+      "name": "Burpees",
+      "category": "cardio",
+      "type": "reps"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+<!--
+index.html
+version: 5.2.1
+build: 2025-08-20 01:45
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Coach — V4</title>
+  <link rel="stylesheet" href="themes.css">
+</head>
+<body class="skin-dark">
+  <div class="badge-top-left" id="topLeftBadge"></div>
+
+  <header class="appbar">
+    <h1 id="appTitle">Coach — V4 <span id="profileName" class="muted"></span></h1>
+    <span id="themePill" class="badge">Jérôme (Dark)</span>
+    <div class="actions">
+      <button id="openHistory" class="iconbtn" title="Historique">📈</button>
+      <button id="openSettings" class="iconbtn" title="Réglages">⚙️</button>
+      <button id="checkUpdates" class="btn">🔄 Check updates</button>
+      <button id="start" class="btn ok">▶ Commencer</button>
+    </div>
+  </header>
+
+  <main class="page grid">
+    <!-- Réglages -->
+    <section id="settingsView" class="card">
+      <h2>Réglages</h2>
+
+      <div class="row" id="userRow">
+        <div class="field">
+          <label for="userSelect">Utilisateur</label>
+          <select id="userSelect"></select>
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <div class="btnbar">
+            <button id="userNew"  class="btn">＋ Nouveau</button>
+            <button id="userDup"  class="btn">⎘ Dupliquer</button>
+            <button id="userRen"  class="btn">✎ Renommer</button>
+            <button id="userDel"  class="btn" style="background:#7f1d1d;">🗑 Supprimer</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <div class="btnbar">
+            <button id="userExport" class="btn">⤓ Exporter</button>
+            <button id="userImport" class="btn">⤒ Importer</button>
+            <input id="userImportFile" type="file" accept="application/json" style="display:none"/>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="field">
+          <label for="profile">Profil</label>
+          <select id="profile">
+            <option value="jerome" selected>Jérôme</option>
+<option value="lohan">Lohan</option>
+<option value="duo">Mode Duo</option>
+          </select>
+        </div>
+        <div class="field"><label>Âge</label><input id="age" type="number"></div>
+        <div class="field"><label>Taille (cm)</label><input id="height" type="number"></div>
+        <div class="field"><label>Poids (kg)</label><input id="weight" type="number" step="0.5"></div>
+        <div class="field">
+          <label>Objectif</label>
+          <select id="goal">
+            <option value="maintenance">Entretien</option>
+            <option value="fatloss">Perte de poids</option>
+            <option value="muscle" selected>Prise de masse</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="arthroseRow">
+        <label class="check"><input type="checkbox" id="arthrose" checked> Arthrose genou gauche (adapter)</label>
+      </div>
+
+      <div class="row" id="themeRow">
+        <div class="field">
+          <label for="theme">Skin</label>
+          <select id="theme"></select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>Circuits</label><input id="rounds" type="number" value="1" min="1" max="8"></div>
+        <div class="field"><label>Repos (s)</label><input id="rest" type="number" value="30" min="0" step="5"></div>
+        <div class="field">
+          <label>Séances/jour</label>
+          <select id="sessionsPerDay"><option>1</option><option>2</option><option selected>3</option></select>
+        </div>
+        <div class="field">
+          <label>Options</label>
+          <label class="check"><input type="checkbox" id="countdown" checked> Compte à rebours 3–2–1</label>
+          <label class="check"><input type="checkbox" id="sound" checked> Son</label>
+          <label class="check"><input type="checkbox" id="vibration" checked> Vibration</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="save" class="btn secondary">💾 Enregistrer</button>
+        <button id="importData" class="btn secondary">📥 Importer données</button>
+        <button id="exportTemplate" class="btn secondary">⬇️ Modèle JSON</button>
+        <input id="fileInput" type="file" accept=".json,application/json" style="display:none;">
+      </div>
+
+      <footer class="versions" id="versionsFooter">
+        <div><strong>Coach v4</strong></div>
+        <div>index.html : <span id="vIndex" class="muted">—</span></div>
+        <div>app.js : <span id="vApp" class="muted">—</span></div>
+        <div>themes.css : <span id="vThemes" class="muted">—</span></div>
+        <div>catalog.json : <span id="vCatalog" class="muted">—</span></div>
+        <div>explain.json : <span id="vExplain" class="muted">—</span></div>
+        <div>progression.json : <span id="vProgression" class="muted">—</span></div>
+      </footer>
+    </section>
+
+    <!-- Séance -->
+    <section id="sessionView" class="card hidden">
+      <div class="chips"><span class="chip">PRÊT</span><span class="chip">VARIANTE GENOU</span></div>
+      <h2 id="exerciseTitle">—</h2>
+      <div class="muted">Prochain : <span id="nextExercise">—</span></div>
+      <ul id="tipsList" class="tips"></ul>
+
+      <div class="ring">
+        <!-- Cercle SVG injecté par app-timer.js -->
+        <div class="timer" id="timerCenter">
+          <div id="timerChip" class="chip bigchip hidden"></div>
+          <div id="timerDisplay">00:00</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnDoneNext" class="btn" style="background:#14532d;">✓ Terminé / Suivant</button>
+        <button id="btnPause" class="btn" style="background:#7c4a11;">‖ Pause / Reprendre</button>
+        <button id="btnSkip" class="btn">⇢ Passer</button>
+        <button id="btnReset" class="btn">↻ Recommencer</button>
+      </div>
+    </section>
+
+    <!-- TOUJOURS PLEINE LARGEUR (EN DESSOUS) -->
+    <section id="planPanel" class="card">
+      <h2>Séance du jour</h2>
+      <div id="sessionList" class="list"></div>
+    </section>
+  </main>
+
+  <!-- JS (split) -->
+  <script src="app-utils.js?v=1.2"></script>
+  <script src="app-profiles.js?v=1.0"></script>
+  <script src="app-skins.js?v=1.0"></script>
+  <script src="app-timer.js?v=1.1"></script>
+  <script src="app-session.js?v=1.3"></script>
+</body>
+</html>
